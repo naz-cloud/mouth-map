@@ -15,25 +15,27 @@ h1 {
   color: #333;
 }
 
-.mouth-map {
+.paint-area {
   position: relative;
   display: inline-block;
-}
-
-.mouth-map img {
-  max-width: 100%;
   border: 2px solid #ccc;
 }
 
-.highlight {
-  background-color: rgba(255, 0, 0, 0.5); /* Red highlight overlay */
-  border: 2px solid #ff0000; /* Border to emphasize the selection */
-  position: absolute;
-  pointer-events: none; /* Prevent blocking clicks */
+canvas {
+  display: block;
+  max-width: 100%;
+  background-image: url('mouth-diagram.png'); /* Your mouth diagram here */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.buttons {
+  margin-top: 20px;
 }
 
 button {
-  margin-top: 20px;
+  margin: 10px;
   padding: 10px 20px;
   background-color: #007BFF;
   color: white;
