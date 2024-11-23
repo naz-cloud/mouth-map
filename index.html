@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mouth Cleaning Feedback</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouth Diagram Highlighter</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Mouth Cleaning Feedback</h1>
-    <p>Click and drag on the image to mark areas that need better cleaning.</p>
+    <h1>Mouth Diagram Highlighter</h1>
+    <p>Click and drag to highlight areas of the mouth. Use the buttons to reset or print the diagram.</p>
     
-    <div class="paint-area">
-      <canvas id="paintCanvas"></canvas>
+    <!-- Canvas for Highlighting -->
+    <canvas id="highlightCanvas"></canvas>
+    
+    <!-- Buttons -->
+    <div>
+        <button id="resetButton">Reset</button>
+        <button id="printButton">Print</button>
     </div>
 
-    <div class="buttons">
-      <button id="clearCanvas">Clear Marks</button>
-      <button id="printCanvas">Print</button>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
 
