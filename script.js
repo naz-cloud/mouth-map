@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const printBtn = document.getElementById("printCanvas");
 
   const img = new Image();
-  img.src = "Mouth-diagram .png"; // Make sure this matches your file name
+  img.src = "Mouth-diagram .png"; // Correct path for your image
   img.onload = () => {
     // Set canvas size to match the image
     canvas.width = img.width;
