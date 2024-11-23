@@ -5,13 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const printBtn = document.getElementById("printCanvas");
 
   const img = new Image();
-  img.src = "Mouth-diagram .png"; // Correct path for your image
-  img.onload = () => {
-    // Set canvas size to match the image
-    canvas.width = img.width;
-    canvas.height = img.height;
-    ctx.drawImage(img, 0, 0);
-  };
+img.src = "Mouth-diagram .png"; // Make sure this matches your image's path
+img.onload = () => {
+  // Set canvas size to match the image size
+  canvas.width = img.width;
+  canvas.height = img.height;
+  ctx.drawImage(img, 0, 0); // Draw the image on the canvas
+};
+
 
   let painting = false;
 
