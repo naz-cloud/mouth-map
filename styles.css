@@ -1,0 +1,50 @@
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+}
+
+.mouth-map {
+  position: relative;
+  display: inline-block;
+}
+
+.mouth-map img {
+  max-width: 100%;
+  border: 2px solid #ccc;
+}
+
+.mouth-map area {
+  cursor: pointer;
+}
+
+.highlight {
+  background-color: rgba(255, 0, 0, 0.5);
+  border: 2px solid red;
+  position: absolute;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
