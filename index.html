@@ -3,27 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mouth Problem Map</title>
+  <title>Mouth Cleaning Feedback</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
-    <h1>Mouth Problem Map</h1>
-    <p>Click on the areas of the mouth that need attention.</p>
+    <h1>Mouth Cleaning Feedback</h1>
+    <p>Click and drag on the image to mark areas that need better cleaning.</p>
     
-    <!-- Mouth Diagram with clickable areas -->
-    <div class="mouth-map">
-      <img src="Mouth-diagram .png" alt="Mouth Diagram" usemap="#mouthmap" id="mouth-image">
-      <map name="mouthmap">
-        <!-- Example clickable areas -->
-        <area shape="rect" coords="50,50,150,100" alt="Upper Left" data-region="upper-left">
-        <area shape="rect" coords="200,50,300,100" alt="Upper Right" data-region="upper-right">
-        <area shape="rect" coords="50,200,150,250" alt="Lower Left" data-region="lower-left">
-        <area shape="rect" coords="200,200,300,250" alt="Lower Right" data-region="lower-right">
-      </map>
+    <!-- Canvas for painting -->
+    <div class="paint-area">
+      <canvas id="paintCanvas"></canvas>
     </div>
 
-    <button id="print-btn">Print</button>
+    <div class="buttons">
+      <button id="clearCanvas">Clear Marks</button>
+      <button id="printCanvas">Print</button>
+    </div>
   </div>
 
   <script src="script.js"></script>
