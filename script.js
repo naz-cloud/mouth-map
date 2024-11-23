@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Set canvas size to match the background image
   const img = new Image();
-  img.src = "mouth-diagram.png"; // Your mouth diagram
+  img.src = "Mouth-diagram .png"; // Your mouth diagram
   img.onload = () => {
     canvas.width = img.width;
     canvas.height = img.height;
