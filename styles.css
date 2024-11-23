@@ -25,14 +25,11 @@ h1 {
   border: 2px solid #ccc;
 }
 
-.mouth-map area {
-  cursor: pointer;
-}
-
 .highlight {
-  background-color: rgba(255, 0, 0, 0.5);
-  border: 2px solid red;
+  background-color: rgba(255, 0, 0, 0.5); /* Red highlight overlay */
+  border: 2px solid #ff0000; /* Border to emphasize the selection */
   position: absolute;
+  pointer-events: none; /* Prevent blocking clicks */
 }
 
 button {
