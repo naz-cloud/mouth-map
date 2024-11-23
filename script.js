@@ -1,74 +1,57 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const canvas = document.getElementById("paintCanvas");
-  const ctx = canvas.getContext("2d");
-  const clearBtn = document.getElementById("clearCanvas");
-  const printBtn = document.getElementById("printCanvas");
+window.onload = function () {
+    const canvas = document.getElementById("highlightCanvas");
+    const ctx = canvas.getContext("2d");
+    const img = new Image();
 
-  const img = new Image();
-  img.src = "Mouth-diagram .png"; // Correct path to your image
-  img.onload = () => {
-    // When the image is loaded, set canvas size to match the image
-    canvas.width = img.width;
-    canvas.height = img.height;
-    
-    // Draw the image onto the canvas
-    ctx.drawImage(img, 0, 0);
-  };
+    // Load the image
+    img.src = "Mouth-diagram .png"; // Image is in the main directory
+    img.onload = function () {
+        // Set canvas size to match the image
+        canvas.width = img.width;
+        canvas.height = img.height;
 
-  let painting = false;
-
-  // Helper function to get mouse position on the canvas
-  function getMousePos(event) {
-    const rect = canvas.getBoundingClientRect();
-    return {
-      x: event.clientX - rect.left,
-      y: event.clientY - rect.top,
+        // Draw the image onto the canvas
+        ctx.drawImage(img, 0, 0);
     };
-  }
 
-  // Start drawing
-  canvas.addEventListener("mousedown", (e) => {
-    painting = true;
-    const { x, y } = getMousePos(e);
-    ctx.beginPath();
-    ctx.moveTo(x, y); // Start the path at the mouse position
-  });
+    let isDrawing = false;
 
-  // Stop drawing
-  canvas.addEventListener("mouseup", () => {
-    painting = false;
-    ctx.beginPath(); // Reset the path for the next stroke
-  });
+    // Start drawing when the user clicks down
+    canvas.addEventListener("mousedown", (e) => {
+        isDrawing = true;
+        ctx.beginPath();
+        ctx.moveTo(e.offsetX, e.offsetY);
+    });
 
-  // Draw on the canvas
-  canvas.addEventListener("mousemove", (e) => {
-    if (!painting) return; // If not holding the mouse button, don’t draw
+    // Draw as the user drags the mouse
+    canvas.addEventListener("mousemove", (e) => {
+        if (isDrawing) {
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.strokeStyle = "rgba(255, 0, 0, 0.5)"; // Red highlight
+            ctx.lineWidth = 5;
+            ctx.stroke();
+        }
+    });
 
-    const { x, y } = getMousePos(e);
-    ctx.lineWidth = 10; // Brush size
-    ctx.lineCap = "round"; // Smooth edges
-    ctx.strokeStyle = "rgba(255, 0, 0, 0.8)"; // Red semi-transparent color
+    // Stop drawing when the user releases the mouse
+    canvas.addEventListener("mouseup", () => {
+        isDrawing = false;
+    });
 
-    ctx.lineTo(x, y); // Draw a line to the current mouse position
-    ctx.stroke(); // Render the stroke
-    ctx.beginPath(); // Reset the path
-    ctx.moveTo(x, y); // Start a new path from the current position
-  });
+    // Reset button to clear the canvas
+    document.getElementById("resetButton").addEventListener("click", () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0); // Redraw the image
+    });
 
-  // Clear the canvas and redraw the image
-  clearBtn.addEventListener("click", () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear everything
-    ctx.drawImage(img, 0, 0); // Redraw the image
-  });
-
-  // Print the canvas content
-  printBtn.addEventListener("click", () => {
-    const printWindow = window.open("", "_blank");
-    printWindow.document.write(`<img src="${canvas.toDataURL()}" />`);
-    printWindow.document.close();
-    printWindow.print();
-  });
-});
+    // Print button
+    document.getElementById("printButton").addEventListener("click", () => {
+        const dataUrl = canvas.toDataURL("image/png");
+        const printWindow = window.open("", "_blank");
+        printWindow.document.write(`<img src="${dataUrl}" onload="window.print()">`);
+        printWindow.document.close();
+    });
+};
 
   printBtn.addEventListener("click", () => {
     window.print();
