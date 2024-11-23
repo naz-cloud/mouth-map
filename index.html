@@ -11,20 +11,21 @@
     <h1>Mouth Problem Map</h1>
     <p>Click on the areas of the mouth that need attention.</p>
     
+    <!-- Mouth Map Image with clickable areas -->
     <div class="mouth-map">
-      <!-- SVG Diagram of the Mouth -->
-      <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+      <img src="mouth-diagram.png" alt="Mouth Diagram" usemap="#mouthmap">
+      <map name="mouthmap">
         <!-- Upper Left -->
-        <rect x="50" y="50" width="50" height="50" fill="#ddd" stroke="#000" stroke-width="2" id="upper-left" />
+        <area shape="rect" coords="50,50,100,100" alt="Upper Left" data-region="Upper Left">
         <!-- Upper Right -->
-        <rect x="150" y="50" width="50" height="50" fill="#ddd" stroke="#000" stroke-width="2" id="upper-right" />
+        <area shape="rect" coords="120,50,170,100" alt="Upper Right" data-region="Upper Right">
         <!-- Lower Left -->
-        <rect x="50" y="150" width="50" height="50" fill="#ddd" stroke="#000" stroke-width="2" id="lower-left" />
+        <area shape="rect" coords="50,150,100,200" alt="Lower Left" data-region="Lower Left">
         <!-- Lower Right -->
-        <rect x="150" y="150" width="50" height="50" fill="#ddd" stroke="#000" stroke-width="2" id="lower-right" />
-      </svg>
+        <area shape="rect" coords="120,150,170,200" alt="Lower Right" data-region="Lower Right">
+      </map>
     </div>
-    
+
     <button id="print-btn">Print</button>
   </div>
 
