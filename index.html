@@ -11,23 +11,24 @@
     <h1>Mouth Problem Map</h1>
     <p>Click on the areas of the mouth that need attention.</p>
     
-    <!-- Mouth Map Image with clickable areas -->
+    <!-- Mouth Diagram with clickable areas -->
     <div class="mouth-map">
-      <img src="Mouth-diagram .png" alt="Mouth Diagram" usemap="#mouthmap">
+      <img src="Mouth-diagram .png" alt="Mouth Diagram" usemap="#mouthmap" id="mouth-image">
       <map name="mouthmap">
-        <!-- Upper Left -->
-        <area shape="rect" coords="50,50,100,100" alt="Upper Left" data-region="Upper Left">
-        <!-- Upper Right -->
-        <area shape="rect" coords="120,50,170,100" alt="Upper Right" data-region="Upper Right">
-        <!-- Lower Left -->
-        <area shape="rect" coords="50,150,100,200" alt="Lower Left" data-region="Lower Left">
-        <!-- Lower Right -->
-        <area shape="rect" coords="120,150,170,200" alt="Lower Right" data-region="Lower Right">
+        <!-- Example clickable areas -->
+        <area shape="rect" coords="50,50,150,100" alt="Upper Left" data-region="upper-left">
+        <area shape="rect" coords="200,50,300,100" alt="Upper Right" data-region="upper-right">
+        <area shape="rect" coords="50,200,150,250" alt="Lower Left" data-region="lower-left">
+        <area shape="rect" coords="200,200,300,250" alt="Lower Right" data-region="lower-right">
       </map>
     </div>
 
     <button id="print-btn">Print</button>
   </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
   <script src="script.js"></script>
 </body>
