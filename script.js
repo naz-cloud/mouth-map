@@ -52,8 +52,3 @@ window.onload = function () {
         printWindow.document.close();
     });
 };
-
-  printBtn.addEventListener("click", () => {
-    window.print();
-  });
-});
