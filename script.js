@@ -4,7 +4,7 @@ window.onload = function () {
     const img = new Image();
 
     // Load the image
-    img.src = "mouth-diagram.png"; // Ensure the image path is correct
+    img.src = "Mouth-diagram .png"; // Ensure the image path is correct
     img.onload = function () {
         canvas.width = img.width;
         canvas.height = img.height;
