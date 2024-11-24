@@ -44,21 +44,41 @@ window.onload = function () {
     // Print button
     document.getElementById("printButton").addEventListener("click", () => {
         const dataUrl = canvas.toDataURL("image/png");
+
+        // Open a new window
         const printWindow = window.open("", "_blank");
 
-        // Ensure the image is fully loaded before printing
+        if (!printWindow) {
+            alert("Popup blocked! Please allow popups for this site to print.");
+            return;
+        }
+
+        // Write the HTML content into the new window
         printWindow.document.write(`
             <!DOCTYPE html>
             <html>
             <head>
                 <title>Print Canvas</title>
+                <style>
+                    body {
+                        margin: 0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100vh;
+                    }
+                    img {
+                        max-width: 100%;
+                        height: auto;
+                    }
+                </style>
             </head>
-            <body style="margin:0; display:flex; justify-content:center; align-items:center; height:100vh;">
-                <img src="${dataUrl}" style="max-width:100%; height:auto;" onload="window.print(); window.close();">
+            <body>
+                <img src="${dataUrl}" onload="window.print(); window.close();">
             </body>
             </html>
         `);
 
-        printWindow.document.close();
+        printWindow.document.close(); // Close the document stream
     });
-}; // This closes the window.onload function
+};
