@@ -46,9 +46,19 @@ window.onload = function () {
 
     // Print button
     document.getElementById("printButton").addEventListener("click", () => {
-        const dataUrl = canvas.toDataURL("image/png");
-        const printWindow = window.open("", "_blank");
-        printWindow.document.write(`<img src="${dataUrl}" onload="window.print()">`);
-        printWindow.document.close();
-    });
-};
+    const dataUrl = canvas.toDataURL("image/png");
+    const printWindow = window.open("", "_blank");
+
+    // Ensure the image is fully loaded before printing
+    printWindow.document.write(`
+        <html>
+        <head>
+            <title>Print Canvas</title>
+        </head>
+        <body>
+            <img src="${dataUrl}" style="max-width: 100%; height: auto;" onload="window.print(); window.close();">
+        </body>
+        </html>
+    `);
+    printWindow.document.close();
+});
